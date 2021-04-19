@@ -8,8 +8,18 @@ import ListPokemon from '../pages/ListPokemon/ListPokemon'
 
 const Router = () => {
     return (
-
-    )
-}
-
-export default Router
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/listpokemon" component={ListPokemon} />
+          <Route
+            exact path="/detailspokemon/:id" component={DetailsPokemon}/>
+          <Route>
+            <div>Erro 404 - Página não encontrada</div>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    );
+  };
+  
+  export default Router;
