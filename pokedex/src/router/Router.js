@@ -4,7 +4,6 @@ import DetailsPokemon from '../pages/DetailsPokemon/DetailsPokemon'
 import Home from '../pages/Home/Home'
 import ListPokemon from '../pages/ListPokemon/ListPokemon'
 
-
 const Router = () => {
     return (
       <BrowserRouter>
