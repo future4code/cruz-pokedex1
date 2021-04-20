@@ -7,7 +7,7 @@ export const PowersCard = ({powers}) => {
     return <DivPowerCards>
         <h1>Poderes</h1>
         {powers.map((item) => {
-            return ( <h3><span>{item.stat.name}: </span>{item.base_stat}</h3>)
+            return ( <h3><span>{item.name}: </span></h3>)
         })}
 </DivPowerCards>
 }

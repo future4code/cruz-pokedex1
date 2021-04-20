@@ -2,12 +2,12 @@ import React, {useState, useEffect, useContext} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {List, AppBar, Toolbar, IconButton, Typography, Slide, Dialog} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-
 import {goToBack} from '../../router/coordinator'
 import {useHistory} from 'react-router-dom'
 import {PowersCard} from '../../components/powerscard/PowersCard'
 import { useParams } from 'react-router-dom'
 import PokemonsContext from "../../contexts/PokemonsContext";
+
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: 'relative',
@@ -52,6 +52,7 @@ export default function Details() {
           </Toolbar>
         </AppBar>
         <List>
+          {console.log(pokemonsContext[index])}
           {pokemonsContext[index] &&
           <PowersCard powers={pokemonsContext[index].stats}/>
         }
