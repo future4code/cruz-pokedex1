@@ -39,11 +39,10 @@ function App() {
   const getPokemons = (pokedex) => {
     let newList = []; 
     pokedex.forEach((item) => {
-    
       axios.get(`${baseUrl}/pokemon/${item.name}`)
       .then(res =>{
           // console.log(res.data)
-          newList = [...newList, res.data]
+          newList = [...newList, {...res.data, pokedex: false}]
           newList = newList.sort((a, b) => 
           {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)}
           )
@@ -60,12 +59,7 @@ function App() {
 
   return (
     <Bory>
-      <PokemonsContext.Provider value={pokemons}>{
-      // console.log(pokemons)
-      }
-      {pokemons.length}
-      <button onClick={() => setCont(cont + 1)}>sd</button>
-      {cont}
+      <PokemonsContext.Provider value={pokemons}>
         <ThemeProvider theme={theme}>
           <Router />
         </ThemeProvider>

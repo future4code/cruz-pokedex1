@@ -5,7 +5,7 @@ export const DivContainer = styled.div`
     padding: 0;
     box-sizing: border-box;}
     display: flex;
-    width: 200px;
+    width: 300px;
     background-color: #cccccc;
     flex-direction: column;
     align-items: flex-start;
