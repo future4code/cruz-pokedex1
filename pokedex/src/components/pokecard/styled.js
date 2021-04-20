@@ -10,6 +10,7 @@ export const DivContainer = styled.div`
     background-color: #cccccc;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
 `
 
 export const Button2 = styled(Button)`
