@@ -23,6 +23,7 @@ const Bory = styled.div`
 function App() {
   //const [pokemonsName, setPokemonsName] = useState([]);
   const [pokemons, setPokemons] = useState([]);
+  const [cont, setCont] = useState(0);
 
   const getPokemonsName = () => {
     axios.get(`${baseUrl}/pokemon?limit=20&offset=0`)
@@ -36,21 +37,22 @@ function App() {
   } 
 
   const getPokemons = (pokedex) => {
-    const newList = []; 
+    let newList = []; 
     pokedex.forEach((item) => {
     
       axios.get(`${baseUrl}/pokemon/${item.name}`)
       .then(res =>{
           // console.log(res.data)
-          newList.push(res.data)
-          
+          newList = [...newList, res.data]
+          newList = newList.sort((a, b) => 
+          {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)}
+          )
+          setPokemons([...newList])
       })
       .catch(err => {
         console.log(err);
       })
     })
-    setPokemons([...newList])
-    console.log("sou new list", newList)
   }
   useEffect(()=>{
     getPokemonsName();
@@ -58,7 +60,12 @@ function App() {
 
   return (
     <Bory>
-      <PokemonsContext.Provider value={pokemons}>{console.log(pokemons)}
+      <PokemonsContext.Provider value={pokemons}>{
+      // console.log(pokemons)
+      }
+      {pokemons.length}
+      <button onClick={() => setCont(cont + 1)}>sd</button>
+      {cont}
         <ThemeProvider theme={theme}>
           <Router />
         </ThemeProvider>
