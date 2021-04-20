@@ -21,54 +21,44 @@ const Bory = styled.div`
 }
 `
 function App() {
-  const [pokemonsName, setPokemonsName] = useState([]);
+  //const [pokemonsName, setPokemonsName] = useState([]);
   const [pokemons, setPokemons] = useState([]);
-  const [required, setRequired] = useState(false);
 
   const getPokemonsName = () => {
-    setRequired(false)
     axios.get(`${baseUrl}/pokemon?limit=20&offset=0`)
     .then(res =>{
-      setPokemonsName(res.data.results)
-      setRequired(true)
+      //setPokemonsName(res.data.results)
+      getPokemons(res.data.results);
     })
     .catch(err => {
       console.log(err);
     })
   } 
-  const getPokemons = (name) => {
-    axios.get(`${baseUrl}/pokemon/${name}`)
-    .then(res =>{
-        console.log(res.data)
-        return res.data;
-    })
-    .catch(err => {
-      console.log(err);
-    })
-  }
-  useEffect(()=>{
-    getPokemonsName();
-  }, [])
-  useEffect(()=>{
+
+  const getPokemons = (pokedex) => {
     const newList = []; 
-    pokemonsName.forEach((item) => {
-     
+    pokedex.forEach((item) => {
+    
       axios.get(`${baseUrl}/pokemon/${item.name}`)
       .then(res =>{
           // console.log(res.data)
           newList.push(res.data)
+          
       })
       .catch(err => {
         console.log(err);
       })
     })
-  
-    setPokemons(newList)
-  }, [required])
+    setPokemons([...newList])
+    console.log("sou new list", newList)
+  }
+  useEffect(()=>{
+    getPokemonsName();
+  }, [])
 
   return (
     <Bory>
-      <PokemonsContext.Provider value={pokemons}>
+      <PokemonsContext.Provider value={pokemons}>{console.log(pokemons)}
         <ThemeProvider theme={theme}>
           <Router />
         </ThemeProvider>
