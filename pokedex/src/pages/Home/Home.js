@@ -11,8 +11,7 @@ const DivContainer = styled.div`
 
 const Home = () => {
     return <DivContainer>
-        <Header>
-        </Header>
+        <Header page="Home" />
         <PokeCard> </PokeCard>
     </DivContainer>
 }

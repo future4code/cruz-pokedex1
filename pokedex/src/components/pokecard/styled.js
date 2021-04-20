@@ -13,10 +13,14 @@ export const DivContainer = styled.div`
 `
 
 export const Button2 = styled(Button)`
-    width: 50%;
+    width:49.7%;
 `
 
-export const DivButtons = styled.div``
+export const DivButtons = styled.div`
+width: 100%;
+display: flex;
+justify-content: space-between;
+`
 
 export const Img = styled.img`
     min-height: 80%;

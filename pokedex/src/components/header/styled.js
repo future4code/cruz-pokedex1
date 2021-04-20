@@ -7,13 +7,21 @@ export const DivContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    > div{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    > div:nth-of-type(2){
+        justify-content: center;
+    }
 `
 
 
 
 export const Img = styled.img`
     height: 130%;
-    
 `
 
 export const Icon = styled.img`
