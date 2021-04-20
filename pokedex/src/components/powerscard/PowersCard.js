@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom'
 export const PowersCard = () => {
     const history = useHistory();
     return <DivContainer>
-        <h1 className="fontPoke">Poderes</h1>
+        <h1 >Poderes</h1>
        <h3><span>hp:</span> 60</h3>
        <h3><span>attack:</span> 62</h3>
        <h3><span> defense:</span> 63</h3>

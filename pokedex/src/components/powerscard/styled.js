@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import {Button} from "@material-ui/core" 
-
 export const DivContainer = styled.div`
     * {margin: 0;
     padding: 0;
@@ -16,5 +15,9 @@ export const DivContainer = styled.div`
     }
     h1{
         align-self: center;
+        font-family: 'pokeSolid';
+        color: #fdc00d;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #2e4494;
     }
 `
