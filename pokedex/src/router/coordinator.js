@@ -7,5 +7,9 @@ export const goToHome = (history) => {
   };
 
   export const goToDetails = (history, id) => {
-    history.push(`/listpokemon/${id}`);
+    history.push(`/detailspokemon/${id}`);
+  };
+
+  export const goToBack = (history) => {
+    history.goBack()
   };
