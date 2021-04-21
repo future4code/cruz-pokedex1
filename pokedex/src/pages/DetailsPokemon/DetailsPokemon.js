@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
+// import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import {goToBack} from '../../router/coordinator'
 import {useHistory} from 'react-router-dom'
@@ -42,7 +42,7 @@ export default function Details() {
         <AppBar className={classes.appBar}>
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="close">
-              <CloseIcon onClick={close}/>
+              <button onClick={close}>fechar</button>
             </IconButton>
             <Typography variant="h6" className={classes.title}>
               Detalhes do asd

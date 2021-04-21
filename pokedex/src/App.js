@@ -21,47 +21,44 @@ const Bory = styled.div`
 }
 `
 function App() {
-  //const [pokemonsName, setPokemonsName] = useState([]);
+  const [pokemonsInfos, setPokemonsInfos] = useState([]);
   const [pokemons, setPokemons] = useState([]);
   const [cont, setCont] = useState(0);
 
-  const getPokemonsName = () => {
+  useEffect(() => {
+    getPokemonsInfos()
+  },[])
+
+  const getPokemonsInfos = () => {
     axios.get(`${baseUrl}/pokemon?limit=20&offset=0`)
     .then(res =>{
-      //setPokemonsName(res.data.results)
-      getPokemons(res.data.results);
+      setPokemonsInfos(res.data.results);
     })
     .catch(err => {
       console.log(err);
     })
   } 
 
-  const getPokemons = (pokedex) => {
-    let newList = []; 
-    pokedex.forEach((item) => {
-    
-      axios.get(`${baseUrl}/pokemon/${item.name}`)
-      .then(res =>{
-          // console.log(res.data)
-          newList = [...newList, res.data]
-          newList = newList.sort((a, b) => 
-          {return (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)}
-          )
-          setPokemons([...newList])
-      })
-      .catch(err => {
-        console.log(err);
+  useEffect(() => {
+    const newList = []
+    pokemonsInfos.forEach((item) => {
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${item.name}`)
+      .then((res) => {
+        newList.push(res.data)
+        if (newList.length === 20) {
+          const orderedList = newList.sort((a, b) => {
+            return a.id - b.id;
+          });
+          setPokemons(orderedList);
+        }
       })
     })
-  }
-  useEffect(()=>{
-    getPokemonsName();
-  }, [])
+}, [pokemonsInfos])
 
+  
   return (
     <Bory>
       <PokemonsContext.Provider value={pokemons}>{
-      // console.log(pokemons)
       }
       {pokemons.length}
       <button onClick={() => setCont(cont + 1)}>sd</button>
