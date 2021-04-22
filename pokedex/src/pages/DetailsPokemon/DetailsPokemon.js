@@ -53,7 +53,7 @@ export default function Details() {
         </AppBar>
         <DetailsCard>
           {pokemonsContext[index] && <>
-          {console.log(pokemonsContext[index].sprites)}
+  
           <DetailsComponent 
           powers={pokemonsContext[index].stats}
           moves={pokemonsContext[index].moves}

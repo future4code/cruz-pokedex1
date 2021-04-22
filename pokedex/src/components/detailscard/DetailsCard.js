@@ -41,7 +41,7 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
         <div id="divImg">
         {
             sprites[keyImg] ?
-        <img src={sprites[keyImg]}/>:
+            <img src={sprites[keyImg]}/>:
         <>
         <NotInterested style={{ fontSize: 200 }} color="secondary"/>
         <h3>Sem imagens</h3>
@@ -52,7 +52,7 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
         <ButtonGroupDetails onChange={onChangeImg} value={keyImg}>
             {keysImg.map((item, index) => {
                 return (<div>
-                    <input type="radio" id={item+"_radio"} value={item} name="urlImg" checked={ keyImg === item}/>
+                    <input type="radio" id={item+"_radio"} value={item} name="urlImg" checked={keyImg === item}/>
                     <label for={item+"_radio"} id={item}>
                         <img src={baseUrlimg+iconesUrlsImg[index]}/>
                         </label></div>)
@@ -68,7 +68,7 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
             <h3><p>{item.stat.name}</p>
             <p>{item.base_stat}</p></h3>
             <div className={classes.root}>
-                <BorderLinearProgress variant="buffer" value={progress === 100 ? item.base_stat:progress }  valueBuffer={buffer} />
+                <BorderLinearProgress variant="buffer" value={progress === 100 ? item.base_stat : progress }  valueBuffer={buffer} />
             </div>
             </>)
         })}
@@ -77,7 +77,7 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
         <h1>Principais Ataques</h1>
         {moves.map((item, index) => {
             return(
-              index < 10 && (<h3>{item.move.name}</h3>)
+                   index < 10 && (<h3>{item.move.name}</h3>)
               )
         })}
 </DivAtacksCards>
