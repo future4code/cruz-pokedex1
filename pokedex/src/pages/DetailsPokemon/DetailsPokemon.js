@@ -6,7 +6,7 @@ import {goToBack} from '../../router/coordinator'
 import {useHistory} from 'react-router-dom'
 import {DetailsComponent} from '../../components/detailscard/DetailsCard'
 import { useParams } from 'react-router-dom'
-import PokemonsContext from "../../contexts/PokemonsContext";
+import GlobalStateContext from "../../global/GlobalStateContext";
 import {DetailsCard} from '../../globalStyled'
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +28,9 @@ export default function Details() {
   const history = useHistory();
   const [open, setOpen] = useState(true);
   const { id } = useParams();
-  const pokemonsContext = useContext(PokemonsContext);
+  const { pokemons } = useContext(GlobalStateContext);
 
-  const index = pokemonsContext.findIndex((item) => {
+  const index = pokemons.findIndex((item) => {
     return item.name === id;
   })
   
@@ -52,13 +52,13 @@ export default function Details() {
           </Toolbar>
         </AppBar>
         <DetailsCard>
-          {pokemonsContext[index] && <>
+          {pokemons[index] && <>
   
           <DetailsComponent 
-          powers={pokemonsContext[index].stats}
-          moves={pokemonsContext[index].moves}
-          sprites={pokemonsContext[index].sprites}
-          name={pokemonsContext[index].name}
+          powers={pokemons[index].stats}
+          moves={pokemons[index].moves}
+          sprites={pokemons[index].sprites}
+          name={pokemons[index].name}
           />
           </>
           }
