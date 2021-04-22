@@ -4,9 +4,10 @@ import {List, AppBar, Toolbar, IconButton, Typography, Slide, Dialog} from '@mat
 import CloseIcon from '@material-ui/icons/Close';
 import {goToBack} from '../../router/coordinator'
 import {useHistory} from 'react-router-dom'
-import {PowersCard} from '../../components/powerscard/PowersCard'
+import {DetailsComponent} from '../../components/detailscard/DetailsCard'
 import { useParams } from 'react-router-dom'
 import PokemonsContext from "../../contexts/PokemonsContext";
+import {DetailsCard} from '../../globalStyled'
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -37,7 +38,6 @@ export default function Details() {
     setOpen(false);
     setTimeout(function(){goToBack(history)}, 200)
   }
-  
   return (
     <div>
       <Dialog fullScreen open={open} TransitionComponent={Transition}>
@@ -51,12 +51,18 @@ export default function Details() {
             </Typography>
           </Toolbar>
         </AppBar>
-        <List>
-          {console.log(pokemonsContext[index])}
-          {pokemonsContext[index] &&
-          <PowersCard powers={pokemonsContext[index].stats}/>
-        }
-        </List>
+        <DetailsCard>
+          {pokemonsContext[index] && <>
+          {console.log(pokemonsContext[index].sprites)}
+          <DetailsComponent 
+          powers={pokemonsContext[index].stats}
+          moves={pokemonsContext[index].moves}
+          sprites={pokemonsContext[index].sprites}
+          name={pokemonsContext[index].name}
+          />
+          </>
+          }
+        </DetailsCard>
       </Dialog>
     </div>
   );
