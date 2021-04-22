@@ -3,8 +3,6 @@ import {PokeCard} from "../../components/pokecard/PokeCard"
 import {Header} from "../../components/header/Header"
 import styled from "styled-components"
 import PokemonsContext from "../../contexts/PokemonsContext";
-import { ListItemText } from "@material-ui/core";
-import ListPokemon from "../ListPokemon/ListPokemon";
 
 const DivContainer = styled.div`
     * {margin: 0;
@@ -19,10 +17,9 @@ const Home = () => {
     const pokemonsContext = useContext(PokemonsContext);
     return <DivContainer>
         <Header page="Home" />
-        {pokemonsContext.length}
         <ListPokemons>
        {pokemonsContext.map((item) => {
-              return (<PokeCard photo={item['sprites'].front_default} name={item['name']}> </PokeCard>)
+              return (<PokeCard photo={item.sprites.front_default} name={item.name} pokedex={item.pokedex}> </PokeCard>)
        })
        }
        </ListPokemons>

@@ -58,6 +58,7 @@ function App() {
   
   return (
     <Bory>
+
       <PokemonsContext.Provider value={pokemons}>{
       }
       {pokemons.length}
