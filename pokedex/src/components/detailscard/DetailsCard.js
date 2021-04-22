@@ -36,8 +36,6 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
     return <>
     <Title>{name}</Title>
     <DivImgCards>
-     
-        {console.log(keyImg)}
         <div id="divImg">
         {
             sprites[keyImg] ?
@@ -68,7 +66,7 @@ export const DetailsComponent = ({powers, moves, sprites, name}) => {
             <h3><p>{item.stat.name}</p>
             <p>{item.base_stat}</p></h3>
             <div className={classes.root}>
-                <BorderLinearProgress variant="buffer" value={progress === 100 ? item.base_stat : progress }  valueBuffer={buffer} />
+                <BorderLinearProgress variant="buffer" value={progress === 100 ? item.base_stat/2 : progress }  valueBuffer={buffer} />
             </div>
             </>)
         })}
