@@ -258,3 +258,12 @@ export const Title = styled.h1`
     justify-content: center;
     margin: 20px;
 `
+
+export const BattleImg = styled.img`
+    width: 50px;
+    height: 50px;
+`
+
+export const H4 = styled.h4`
+    margin-top: 24px;
+`

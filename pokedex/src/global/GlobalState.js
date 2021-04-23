@@ -41,7 +41,6 @@ useEffect(() => {
         const orderedList = newList.sort((a, b) => {
           return a.id - b.id;
         })
-
 setPokemons(orderedList)
       }
     })
