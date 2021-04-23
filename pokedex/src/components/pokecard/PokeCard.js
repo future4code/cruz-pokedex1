@@ -51,7 +51,7 @@ export const PokeCard = ({name, photo, addToPokedex, isInPokedex, removeToPokede
                 <AddCircle  id="buttonBlue" fontSize="large"  onClick={() => addToPokedex()} style={{ fontSize: 50 }}/>
             </IconButton>}
       
-            {comparePowerOfBattle && <IconButton color="secondary" onClick={() => comparePowerOfBattle(soma, name)}>
+            {comparePowerOfBattle && <IconButton color="secondary" onClick={() => comparePowerOfBattle(soma, name, photo)}>
             <BattleImg src={Battle}  />
             </IconButton>}
 
