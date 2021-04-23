@@ -2,7 +2,9 @@ import styled from "styled-components"
 import {Button} from "@material-ui/core" 
 const colorPrimary = "ff0000"
 const colorSecondary = '2979ff'
-const themeyellow = "2e4494"
+const themeyellow = "fdc00d"
+const themeblue = "2e4494"
+
 export const DivContainerHome = styled.div`
     * {
         margin: 0;
@@ -25,11 +27,20 @@ export const DivContainerCard = styled.div`
     box-sizing: border-box;
     }
     display: flex;
-    width: 200px;
-    background-color: #cccccc;
+    width: 250px;
+    background-color: #dddddd;
+    border-radius: 25px;
     flex-direction: column;
     align-items: center;
-    margin: 10px;
+    margin: 20px;
+    h3{
+        text-transform: capitalize;
+        text-align: center;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 export const Button2 = styled(Button)`
@@ -39,19 +50,73 @@ export const Button2 = styled(Button)`
 export const DivButtons = styled.div`
 width: 100%;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
+> div button path {
+    font-size: 500px !important;
+    }
+#buttonYellow{
+    color: #${themeyellow};
+}
+#buttonBlue{
+    color: #${themeblue};
+}
 `
-
 export const Img = styled.img`
     min-height: 80%;
+    
 `
-
-export const DivImage = styled.div`
-    width: 200px;
-    height: 200px;
+export const DivImg = styled.div`
+    position: absolute;   
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffffaa;
+`
+export const Information = styled.div`
+    padding: 10px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;   
+    flex-direction: column;
+    background-color: #ffffffaa;
+    .text{
+        margin-top: 4px;
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+   
+`
+export const DivFrontBack = styled.div`
+.cartao {
+		width: 220px;
+	height: 220px;
+ 	perspective: 100%;
+     margin: 10px;
+     box-sizing: border-box;
+}
+.cartao-container {
+	position: relative;
+	height: 100%;
+	transition: transform .6s;
+	transform-style: preserve-3d;
+}
+.cartao:hover .cartao-container {
+	transform: rotateY(180deg);
+}
+.cartao-front, .cartao-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+	z-index: 1;
+    border-radius: 20px;
+}
+.cartao-back {
+	transform: rotateY(180deg);
+}  
 `
 
 export const DivPowerCards = styled.div`

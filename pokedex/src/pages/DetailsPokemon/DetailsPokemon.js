@@ -28,12 +28,15 @@ export default function Details() {
   const history = useHistory();
   const [open, setOpen] = useState(true);
   const { id } = useParams();
-  const { pokemons } = useContext(GlobalStateContext);
+  const { pokemons, pokedex } = useContext(GlobalStateContext);
 
-  const index = pokemons.findIndex((item) => {
+  const indexPokemon = pokemons.findIndex((item) => {
     return item.name === id;
   })
-  
+  const indexPokedex = pokedex.findIndex((item) => {
+    return item.name === id;
+  })
+
   const close = () => {
     setOpen(false);
     setTimeout(function(){goToBack(history)}, 200)
@@ -52,15 +55,21 @@ export default function Details() {
           </Toolbar>
         </AppBar>
         <DetailsCard>
-          {pokemons[index] && <>
-  
+          {pokemons[indexPokemon] ?   
           <DetailsComponent 
-          powers={pokemons[index].stats}
-          moves={pokemons[index].moves}
-          sprites={pokemons[index].sprites}
-          name={pokemons[index].name}
-          />
-          </>
+          powers={pokemons[indexPokemon].stats}
+          moves={pokemons[indexPokemon].moves}
+          sprites={pokemons[indexPokemon].sprites}
+          name={pokemons[indexPokemon].name}
+          /> : 
+          ( pokedex[indexPokedex] && 
+          <DetailsComponent 
+          powers={pokedex[indexPokedex].stats}
+          moves={pokedex[indexPokedex].moves}
+          sprites={pokedex[indexPokedex].sprites}
+          name={pokedex[indexPokedex].name}
+          /> )
+
           }
         </DetailsCard>
       </Dialog>

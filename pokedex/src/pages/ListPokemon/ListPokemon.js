@@ -21,7 +21,7 @@ const ListPokemon = () => {
     <ListPokemons>
     {pokedex &&
         pokedex.map((item) => {
-            return (<PokeCard photo={item.sprites.front_default} name={item.name} pokedex={item.pokedex} isInPokedex = {true} removeToPokedex={() => removeToPokedex(item)} > </PokeCard>)
+            return (<PokeCard photo={item.sprites.front_default} name={item.name} pokedex={item.pokedex} isInPokedex = {true} removeToPokedex={() => removeToPokedex(item)} powers={item.stats}> </PokeCard>)
         })
     }
     </ListPokemons>
