@@ -19,7 +19,7 @@ const DivPagination = styled.div`
 `
 
 const Home = () => {
-    const { pokemons, setPokemons, pokedex, setPokedex, pagination, setPagination } = useContext(GlobalStateContext);
+    const { pokemons, pokedex, setPokedex, pagination, setPagination } = useContext(GlobalStateContext);
 
     const handleChange = (event, value) => {
         setPagination(value);
@@ -63,7 +63,9 @@ const Home = () => {
                 pokedex={item.pokedex} 
                 addToPokedex={() => addToPokedex(item)} 
                 isInPokedex = {isInPoke} 
-                removeToPokedex = {() => removeToPokedex(item)}> </PokeCard>)
+                removeToPokedex = {() => removeToPokedex(item)}
+                powers={item.stats}
+                > </PokeCard>)
        })
        }
        
