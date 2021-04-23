@@ -267,3 +267,40 @@ export const BattleImg = styled.img`
 export const H4 = styled.h4`
     margin-top: 24px;
 `
+
+export const DivBattle = styled.div `
+display: flex;
+flex-direction: column;
+> div {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 300px;
+align-self: center;
+
+ > div {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     margin: 0 18px;
+ }
+ h1 {
+     font-family: 'pokeHollow';
+ }
+img {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border-radius: 5px;
+}
+h2 {
+    text-transform: capitalize;
+}
+}
+#winner {
+    width: 100%;
+    text-align: center;
+    text-transform:capitalize;
+}
+`
